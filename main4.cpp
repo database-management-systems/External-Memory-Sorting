@@ -90,13 +90,16 @@ int input(string input_name, int TOTAL_MEM) {
             row.push_back(word);
         }
 
+        cout << total_mem_so_far << endl;
+
         //There are at most 22 blocks available to the sort algorithm in the main memory.
-        if (total_mem_so_far + atoi(row[0].c_str()) < TOTAL_MEM) {
-            total_mem_so_far += atoi(row[0].c_str()) + 1;
+        if (total_mem_so_far < TOTAL_MEM) {
+            total_mem_so_far++;
             if(sentence.length() != 0){
                 data.push_back(sentence);
             }
         } else {
+            total_mem_so_far = 0;
             sort(data.begin(), data.end(), compare);
 
             run_count++;
@@ -116,10 +119,10 @@ int input(string input_name, int TOTAL_MEM) {
             }
             output.close();
             data.clear();
-            total_mem_so_far = sentence.size();
             if(sentence.length() != 0){
                 data.push_back(sentence);
             }
+
         }
     }
 
