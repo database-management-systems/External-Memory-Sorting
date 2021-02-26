@@ -103,7 +103,7 @@ int input(string input_name, int TOTAL_MEM) {
             stringstream ss;
             ss << "run_" << run_count << ".txt";
             cout << "Writing " << ss.str() << endl;
-            output.open(ss.str());
+            output.open(ss.str().c_str());
 
             int data_size = data.size();
             for (int i = 0; i < data_size-1; i++) {
@@ -132,7 +132,7 @@ int input(string input_name, int TOTAL_MEM) {
         stringstream ss;
         ss << "run_" << run_count << ".txt";
         cout << "Writing " << ss.str() << endl;
-        output.open(ss.str());
+        output.open(ss.str().c_str());
 
         int data_size = data.size();
         for (int i = 0; i < data_size-1; i++) {
@@ -160,7 +160,7 @@ void merge(int start, int end, int location) {
     for (int i = 0; i < runs_count; i++) {
         stringstream ss;
         ss << "run_" << start + i << ".txt";
-        input[i].open(ss.str());
+        input[i].open(ss.str().c_str());
     }
 
     priority_queue<HeapNode, vector<HeapNode> > heap;
@@ -168,7 +168,7 @@ void merge(int start, int end, int location) {
     ofstream output;
     stringstream ss;
     ss << "run_" << location << ".txt";
-    output.open(ss.str());
+    output.open(ss.str().c_str());
 
     for (int i = 0; i < runs_count; i++) {
         string sentence;
