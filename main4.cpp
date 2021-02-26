@@ -53,7 +53,7 @@ bool compare(const string& s1, const string& s2)
 }
 
 int input(string input_name, int TOTAL_MEM) {
-    ifstream input; 
+    ifstream input;
     input.open(input_name.c_str());
 
     if (!input.good()) {
